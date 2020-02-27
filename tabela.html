@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pastel de Ideias</title>
+<style>
+	
+	/*global*/
+	* {     -moz-box-sizing: border-box;     -webkit-box-sizing: border-box;      box-sizing: border-box; font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif"}
+	body{ background: url('img/pattern.png')}
+	
+	/*topo*/
+	header{background:url('img/wave.png') no-repeat 0 -100px; -moz-background-size: cover; -webkit-background-size: cover; -o-background-size: cover; background-size: cover;}
+	#wave{width:100%;height:547px;padding-top:40px}
+	#pastel1{width:30%;float:left;} #pastel1 img{position:relative;opacity: 1;filter:blur(5px);width:450px;z-index:1;left:-30px}
+	#logo{width:40%;float:left;}#logo img{width:100%}
+	#pastel2{width:30%;float:left} #pastel2 img{margin-top:100px;margin-left:-100px}
+	
+	@media screen and (max-width: 1188px){
+		#pastel1 img{z-index:0}
+	}
+	
+	@media screen and (max-width: 1000px){
+		#pastel2 img{;margin-left:-200px}
+	}
+	@media screen and (max-width: 760px){
+		#pastel1 img{width:350px;top:80px}
+	}
+	@media screen and (max-width: 540px){
+		#pastel1 img{width:300px}
+	}
+	@media screen and (max-width: 680px){
+		#pastel2 img{margin-left: -150px;width:300px}
+	}
+	/*-*/
+	
+	/*centro*/
+	#divtable{width:100%;height:auto;margin-top:-270px;position:absolute;}
+	#tabletitle .div30{font-weight: 400;font-size:14px;text-align:right}
+	#maintable{background:#fff;margin:0 auto;width:65%;-webkit-box-shadow: -webkit-box-shadow: 3px 53px 48px 0px rgba(196,196,196,1);
+-moz-box-shadow: 3px 53px 48px 0px rgba(196,196,196,1);box-shadow: 3px 53px 48px 0px rgba(196,196,196,1);border-radius:20px}
+	#tabletitle{background:#FFCA00;color:#E43636;padding:20px 40px 60px 40px;font-weight: bold;font-size:20px;border-top-left-radius:20px;border-top-right-radius:20px}
+	
+	@media screen and (max-width: 1000px){
+		#maintable{width:88%}
+	}
+	@media screen and (max-width: 680px){
+		#tabletitle{height:120px}
+	}
+	
+	/*toogle*/	
+	.switch {  position: relative;  display: inline-block;  width: 50px;  height: 24px;margin-left:8px;margin-right:8px}
+	.switch input {   opacity: 0;  width: 0;  height: 0;}
+	.labelswitch{margin-top:-10px}
+	.slider {  position: absolute;  cursor: pointer;  top: 0;  left: 0;  right: 0;  bottom: 0;  background-color: #fff;  -webkit-transition: .4s;  transition: .4s;}
+	.slider:before {  position: absolute;  content: "";  height: 16px;  width: 16px;  left: 4px;  bottom: 4px;  background-color: #e43636;  -webkit-transition: .4s;  transition: .4s;}
+	input:checked + .slider {  background-color: #fff;}
+	input:focus + .slider {  box-shadow: 0 0 1px #2196F3;}
+	input:checked + .slider:before {  -webkit-transform: translateX(26px);  -ms-transform: translateX(26px);  transform: translateX(26px);}
+	.slider.round {  border-radius: 34px;}
+	.slider.round:before {  border-radius: 50%;}
+	
+	/*divs dos fields*/
+	#grids{padding:0px 20px 70px 20px;margin-top:-35px}
+	.grid div{padding:10px} 
+	.div20{float:left;width:20%}
+	.div30{float:left;width:30%}
+	.div40{float:left;width:40%}
+	.div50{float:left;width:50%}
+	.div70{float:left;width:70%}
+	.div80{float:left;width:80%}
+	.div100{width:100%}
+	
+	@media screen and (max-width: 680px){
+	#grids{margin-top:15px !important;}
+	.div20{;width:100%}
+	.div30{;width:100%}
+	.div40{;width:100%}
+	.div50{;width:100%}
+	.div70{;width:100%}
+	.div80{;width:100%}
+	.div100{width:100%}
+	}
+	
+	/*classes dos fields*/
+	.inputtext{width:100%;padding:10px 20px;color:#E43636;border-radius:10px;border:1px solid #E43636;font-size:14px;font-weight:bold}
+	.textarea{width:100%;padding:10px 20px;color:#E43636;border-radius:10px;border:1px solid #E43636;font-size:14px;font-weight:bold}
+	.inputtext::placeholder, .textarea::placeholder{font-weight:400}
+	input[type=number] {  -moz-appearance:textfield;}
+	/*upload*/
+	#filedrag {display: none;	font-weight: bold;	text-align: center;	padding: 1em 0;	margin: 1em 0;	color: #555;	border: 2px dashed #555;	border-radius: 7px;	cursor: default;}
+	#filedrag.hover {	color: #f00;	border-color: #f00;	border-style: solid;	box-shadow: inset 0 3px 4px #888;}
+	#drag{border-radius:10px;border:1px solid #E43636;padding:20px;font: Regular 16px/21px Roboto;
+letter-spacing: 0;color: #A03400;opacity: 1;}
+	#drag input{display:none;}
+	#drag img{cursor:pointer;width:50px}
+
+	/*botoes*/
+	.alignright{text-align:right}
+	#botoes{margin-top:30px;position: absolute;left: 50%;transform: translateX(-50%);}
+	.botao1{background:#e43636;color:#fff;text-transform: uppercase;letter-spacing: 1px;transition: 0.2s;font-size:18px;border-radius:30px;border:0px;padding:15px 60px;cursor:pointer;}.botao1:hover{letter-spacing:2px;}
+	.botao2{background:#FFCA00;color:#e43636;text-transform: uppercase;letter-spacing: 1px;transition: 0.2s;font-size:18px;border-radius:30px;border:0px;padding:15px 60px;cursor:pointer}.botao2:hover{letter-spacing:2px;}
+	
+	@media screen and (max-width: 780px){
+		#btn2d, .alignright{text-align:center}
+		.botao1, .botao2{padding: 10px 30px}
+	}
+	
+	
+	/*parte inferior*/
+	
+	/*linha*/
+	#inferior{margin-top:200px}
+	#divisor{color:#E43636}
+	#ttdiv{background:#fff;padding:10px 15px;width:400px;margin:0 auto;margin-top:-50px;color:#e43636}
+	@media screen and (max-width: 680px){
+		#inferior{margin-top:480px}
+	}
+	/*tabela de informações*/
+	#maintableinfo{width:65%;margin:0 auto;background:#fff;height:200px;-webkit-box-shadow: -webkit-box-shadow: 3px 53px 48px 0px rgba(196,196,196,1);
+-moz-box-shadow: 3px 53px 48px 0px rgba(196,196,196,1);box-shadow: 3px 53px 48px 0px rgba(196,196,196,1);border-radius:20px}
+	#maintableinfott{background:#E43636;padding:10px 30px 10px 125px;height:50px;border-top-right-radius: 10px;border-top-left-radius: 10px;}
+	#maintableinfott .div70{color:#FFCA00;font-size:18px;font-weight:bold}
+	#maintableinfott .div30{color:#fff;font-size:18px;font-weight:bold}
+	@media screen and (max-width: 680px){
+		#maintableinfott{height:70px;text-align:center;padding:10px}
+	}
+	
+	@media screen and (max-width: 1000px){
+		#maintableinfo{width:90%;}
+	}
+	@media screen and (max-width: 680px){
+		#maintableinfo{height:400px;}
+	}
+	
+	
+	#contentinfomain{color:#E43636}
+	#contentinfomain img{width:100%;margin-left:-50px;margin-top:-30px;border-radius:16px;width:150px;height:150px;object-fit:cover;}
+	@media screen and (max-width: 1000px){
+		#contentinfomain img{;margin:0}
+	}
+	@media screen and (max-width: 680px){
+		#contentinfomain .div20{text-align:center}
+		#contentinfomain .div20 img{width:200px}
+	}
+	
+	#contentinfomain .div80, #contentinfomain .div20{padding:20px;font-size:20px}
+	
+</style>
+</head>
+<body>
+	<header>
+		<div id="wave">
+			<div id="pastel1"><img src="img/pastel-paralax.png"></div>
+			<div id="logo"><img src="img/Logo.png"></div>
+			<div id="pastel2"><img src="img/pasteis-img.png"></div>
+		</div>
+	</header>
+	<form action="" method="">
+	<div id="divtable">
+		<div id="maintable">
+			<div id="tabletitle">
+				<div class="div70">Monte aqui o seu cardápio. O que está esperando?</div>
+				<div class="div30">
+					<span class="labelswitch">Comida</span><label class="switch"><input type="checkbox" name="eh-bebida" ><span class="slider round"></span></label><span class="labelswitch">Bebida</span>
+				</div>
+			</div>
+			<div id="grids">
+				<div class="grid">
+					<div class="div40"><input type="text" name="titulo-pedido" placeholder="Título do Pedido" class="inputtext" required  minlength="3" maxlength="60"></div>
+					<div class="div40"><input type="text" name="sabor" placeholder="Sabor" class="inputtext" required  minlength="3" maxlength="60"></div>
+					<div class="div20"><input type="number" required name="valor" placeholder="R$" class="inputtext"></div>
+				</div>
+				<div class="grid">
+					<div class="div100"><textarea name="descricao" placeholder="Descrição" class="textarea"></textarea></div>
+					<div class="div100">
+						<div id="drag">
+							<center>
+								<label for="fileselect">
+        							<img src="https://goo.gl/pB9rpQ"/>
+   								</label>
+								<input type="file" id="fileselect"  accept=".jpg,.png" name="fileselect[]" multiple="multiple" />
+										<br>&nbsp;<br>Jogue aqui o arquivo de imagem do seu pastel ou clique para localizar a pasta
+							</center>
+						</div>
+					</div>
+				</div>
+				<div class="grid" id="botoes">
+					<div class="div50 alignright" id="btn1d"><input type="reset" value="LIMPAR" class="botao1"></div>
+					<div class="div50" id="btn2d"><input type="submit" value="CADASTRAR" class="botao2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	<div id="inferior">
+	<hr id="divisor">
+		<div id="ttdiv"><h3 align="center">Veja como será apresentado ao cliente</h3></div>
+	<div id="info">
+		<div id="tableinfo">
+			<div id="maintableinfo">
+				<div id="maintableinfott">
+					<div class="div70">
+						"Ajeita rapidinho pra mim"
+					</div>
+					<div class="div30 alignright">
+						R$10,00
+					</div>
+				</div>
+				<div id="contentinfomain">
+					<div class="div20">
+						<img src="img/pastel-pedido.jpg">
+					</div>
+					<div class="div80">
+						<strong>Sabor</strong>: PowerPoint importante<br>
+						<strong>Descrição</strong>: 1 PPT, 6834 slides e uma pitada de animação
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		</div>
+</body>
+</html>
